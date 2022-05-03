@@ -4,7 +4,7 @@ sudo apt -y update \
  && sudo apt install -y unzip \
  && sudo apt install -y git \
  && sudo apt install -y zsh \
- && sudo apt-get install curl \
+ && sudo apt-get -y install curl \
 
  sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
@@ -18,12 +18,12 @@ sudo apt -y update \
  sudo rm ~/.poshthemes/themes.zip
  sudo echo 'eval "$(oh-my-posh init zsh --config ~/.poshthemes/craver.omp.json)"' >> ~/.zshrc
 
+ sudo mkdir -p ~/.zsh/plugins/zsh-autosuggestions
  sudo git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/plugins/zsh-autosuggestions
  sudo echo 'source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
 
+ sudo mkdir -p ~/.zsh/plugins/zsh-syntax-highlighting
  sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
  sudo echo 'source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> ~/.zshrc
 
- sudo chsh -s $(which zsh)
-
- cp -r /mnt/c/Users/$(cmd.exe /c echo %username%)/.ssh ~/
+chsh -s $(which zsh)
